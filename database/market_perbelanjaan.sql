@@ -24,6 +24,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `id_admin` int NOT NULL AUTO_INCREMENT,
   `id_user` int NOT NULL,
   `nama_admin` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
   PRIMARY KEY (`id_admin`),
   KEY `id_user` (`id_user`),
   CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`)
@@ -58,6 +59,7 @@ CREATE TABLE IF NOT EXISTS `petugas_loket` (
   `id_petugas` int NOT NULL AUTO_INCREMENT,
   `id_user` int NOT NULL,
   `nama_petugas` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
   PRIMARY KEY (`id_petugas`),
   KEY `id_user` (`id_user`),
   CONSTRAINT `petugas_loket_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`)
@@ -84,6 +86,7 @@ CREATE TABLE IF NOT EXISTS `transaksi_parkir` (
 CREATE TABLE IF NOT EXISTS `users` (
   `id_user` int NOT NULL AUTO_INCREMENT,
   `nama` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
   `role` enum('admin','petugas loket') NOT NULL,
   PRIMARY KEY (`id_user`)
